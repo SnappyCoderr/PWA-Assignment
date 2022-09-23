@@ -32,6 +32,7 @@ import ProductScroller from '../../components/product-scroller'
 // Others
 import {getAssetUrl} from 'pwa-kit-react-sdk/ssr/universal/utils'
 import {heroFeatures, features} from './data'
+import {Alert, AlertIcon} from '@chakra-ui/react'
 
 // Constants
 import {
@@ -46,7 +47,21 @@ import {
  * The page renders SEO metadata and a few promotion
  * categories and products, data is from local file.
  */
+
+const MyHeader = ({name}) => {
+    return (
+        <Box>
+            <h1>Hello,{name}!</h1>
+            <Alert padding="10" status="success">
+                <AlertIcon />
+                Chakra UI components unlocked!
+            </Alert>
+        </Box>
+    )
+}
+
 const Home = ({productSearchResult, isLoading}) => {
+    //debugger  -> run command npm run start:inspect  and add this keyword on line you want brkpoint to hit
     const intl = useIntl()
 
     return (
@@ -56,6 +71,9 @@ const Home = ({productSearchResult, isLoading}) => {
                 description="Commerce Cloud Retail React App"
                 keywords="Commerce Cloud, Retail React App, React Storefront"
             />
+
+            <h1>Hello PWA developer</h1>
+            <MyHeader name="Mihir" />
 
             <Hero
                 title={intl.formatMessage({
